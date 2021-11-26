@@ -1,5 +1,5 @@
 import config as app_config
-from logging import Handler
+from logging import Handler, LogRecord
 from abc import abstractmethod
 
 
@@ -10,8 +10,8 @@ class ChatLoggerHandlerInterface(Handler):
         self.stack_trace = stack_trace
 
     @abstractmethod
-    def send_message(self, record):
-        return
+    def send_message(self, record: LogRecord) -> bool:
+        return True
 
     def emit(self, record):
         if app_config.ENVIRONMENT in app_config.ALLOWED_ENVIRONMENT:

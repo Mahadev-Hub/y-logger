@@ -17,3 +17,4 @@ class SlackHandler(ChatLoggerHandlerInterface):
     def send_message(self, record):
         message = self.format(record)
         self.client.chat_postMessage(text=message, channel=self.channel, username=self.username)
+        return True
