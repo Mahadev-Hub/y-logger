@@ -1,5 +1,6 @@
 import logging
-from app.y_logger import logger
+from app_logging import logger
+
 
 if __name__ == '__main__':
     logger.debug(f'[{logging.DEBUG}]: Test Message')

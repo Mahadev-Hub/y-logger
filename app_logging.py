@@ -1,8 +1,8 @@
 import os
-import logging
-from logging import config as logging_config
 from pathlib import Path
 import config as app_config
+import logging
+from logging import config as logging_config
 
 app_logging_config = {
     'version': 1,
@@ -110,13 +110,11 @@ app_logging_config = {
             }
         }
     },
-
 }
 
 app_logging_config["formatters"]["night_watch"]["format"]["hostname"] = \
     app_logging_config["handlers"]["fluent_async_handler"]["tag"]
 
 logging_config.dictConfig(app_logging_config)
-
 logger = logging.getLogger(app_config.APP_NAME)
 logger.info("[FIRST LOG]: Logger ready")
